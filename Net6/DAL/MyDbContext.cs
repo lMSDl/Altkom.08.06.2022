@@ -44,6 +44,16 @@ namespace DAL
                     x.HasKey("PersonId", "AddressId");
                     x.ToTable("PeopleAddresses");
                 });
+
+
+            modelBuilder.Entity<Product>()
+                .ToTable("Products", x => x.IsTemporal(y =>
+                {
+                    y.HasPeriodStart("From");
+                    y.HasPeriodEnd("To");
+                    y.UseHistoryTable("ProductsData");
+                }));
+
         }
     }
 }
