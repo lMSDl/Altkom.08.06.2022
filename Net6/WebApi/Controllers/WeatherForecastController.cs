@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace MVC.Controllers
+namespace WebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase, IAsyncDisposable
+    public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
         {
@@ -16,12 +16,6 @@ namespace MVC.Controllers
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
-        }
-
-
-        public async ValueTask DisposeAsync()
-        {
-            await Task.Delay(10);
         }
 
         [HttpGet]

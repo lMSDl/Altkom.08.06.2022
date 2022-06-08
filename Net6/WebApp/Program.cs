@@ -21,9 +21,7 @@ app.UseRouting();
 app.Use(async (context, next) =>
 {
     Console.WriteLine(context.GetEndpoint()?.DisplayName ?? "null");
-
     await next(context);
-
 });
 
 app.MapGet("/", () => "Hello World!");
