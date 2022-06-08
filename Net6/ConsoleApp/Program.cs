@@ -1,15 +1,25 @@
 ﻿
 
+
 //public class Program {
 
 //    public static void Main(string[] args)
 //    {
+global using Newtonsoft.Json.Converters;
+using ConsoleApp;
 
-            ShowText();
+//using Newtonsoft.Json;
+using System;
+
+ShowText();
 
              void ShowText()
             {
-                Console.WriteLine("Hello, World!");
+                JsonConvert.SerializeObject(new Class());
+
+    var binaryConverter = new BinaryConverter();
+
+    Console.WriteLine("Hello, World!");
             }
 
 //    }    

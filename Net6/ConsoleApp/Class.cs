@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+namespace ConsoleApp; //namespace dla całego pliku
 
-namespace ConsoleApp
+public class Class
 {
-    internal class Class
+    public Class()
     {
-        public Class()
-        {
+        var binaryConverter = new BinaryConverter();
 
-        }
     }
 }
+
