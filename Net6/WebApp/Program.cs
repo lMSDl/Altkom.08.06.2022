@@ -6,7 +6,7 @@ builder.Services.AddSingleton<RandomNumberService>();
 
 var app = builder.Build();
 
-
+app.UseHttpLogging();
 
 app.Use(async (context, next) =>
 {
