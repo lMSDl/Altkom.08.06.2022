@@ -8,6 +8,14 @@
     <StartupObject></StartupObject>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Remove="Program2.cs" />
   </ItemGroup>
@@ -18,7 +26,7 @@
 
 	<ItemGroup>
 		<Using Include="Newtonsoft.Json" />
-		<Using Remove="System"/>
+		<Using Remove="System" />
 	</ItemGroup>
 
 </Project>
