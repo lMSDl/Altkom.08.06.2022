@@ -10,6 +10,7 @@ namespace DAL.Models
     {
 
         public string Name { get; set; } = "";
+        public DateTime BirthDate { get; set; } = DateTime.Now;
         public IEnumerable<Address> Addresses { get; set; } = new List<Address>();
     }
 }

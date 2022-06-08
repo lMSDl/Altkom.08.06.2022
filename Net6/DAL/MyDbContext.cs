@@ -24,6 +24,7 @@ namespace DAL
         {
             base.OnConfiguring(optionsBuilder);
 
+            if(!optionsBuilder.IsConfigured)
             optionsBuilder.UseSqlServer("Server=(local);Database=EF;Integrated Security=true");
 
         }
@@ -53,6 +54,22 @@ namespace DAL
                     y.HasPeriodEnd("To");
                     y.UseHistoryTable("ProductsData");
                 }));
+
+            foreach (var item in modelBuilder.Model.GetEntityTypes()
+                .SelectMany(x => x.GetProperties())
+                .Where(x => x.PropertyInfo?.PropertyType == typeof(DateTime)))
+            {
+                item.SetColumnType("dateTime");
+            }
+            
+
+        }
+
+        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+        {
+            base.ConfigureConventions(configurationBuilder);
+            configurationBuilder.Properties<float>()
+                .HavePrecision(10);
 
         }
     }
